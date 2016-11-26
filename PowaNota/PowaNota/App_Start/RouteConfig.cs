@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace PowaNota
+namespace Nota1
 {
     public class RouteConfig
     {
@@ -16,7 +16,7 @@ namespace PowaNota
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Usuario", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

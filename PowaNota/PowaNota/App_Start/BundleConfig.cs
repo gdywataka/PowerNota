@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace PowaNota
+namespace Nota1
 {
     public class BundleConfig
     {
@@ -25,7 +25,14 @@ namespace PowaNota
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/freelancer.css",
+                      "~/Content/freelancer.min.css",
+                      "~/Content/morris.css",
+                      "~/Content/fonte1.css",
+                      "~/Content/fonte2.css",
+                      "~/Content/nota.css"));
         }
     }
 }

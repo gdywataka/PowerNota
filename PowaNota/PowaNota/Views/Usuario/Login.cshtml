@@ -1,0 +1,37 @@
+﻿@model Nota1.Models.Usuario
+
+@{
+   Layout = "~/Views/Shared/Inicial.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <div class="loginmodal-container">
+            <h2>Logue-se</h2>
+            <br>
+            @using (Html.BeginForm())
+            {
+                @Html.EditorFor(model => model.login, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.PasswordFor(model => model.senha, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="submit" value="Login" class="btn btn-default" />
+            };
+
+            <div class="login-help">
+                <ul>
+                    <li>@Html.ActionLink("Registre-se", "Create", "Usuario")</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
