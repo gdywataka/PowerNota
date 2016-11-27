@@ -12,15 +12,5 @@ namespace Nota1.Models
         public string nome;
 
      
-
-        public List<Tipo>ListaTipo()
-        {
-            return new List<Tipo>
-            {
-            new Tipo{id=1,nome="Nota"},
-            new Tipo{id =2,nome ="Lista" }
-            };
-
-    }
 }
 }
