@@ -26,34 +26,26 @@
         <div class="form-group">
             @Html.Label("Selecione Tipo", new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-                @Html.DropDownListFor(model => model.idTipo, new List<SelectListItem>
+                @Html.DropDownListFor(model => model.tipo, new List<SelectListItem>
     {
                         new SelectListItem() {Text = "Nota", Value="1"},
                         new SelectListItem() {Text = "Lista", Value="2"},
 
     })
-                @Html.ValidationMessageFor(model => model.idTipo, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
                 @Html.TextArea("Textos", "", new { @class = "form-control" })
                 </div>
         </div>
         <div class="form-group">
             @Html.Label("Selecione os topicos", new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-            <table>
-             <tr>
+                <select id="multiselectTopico" name="topicos" multiple="multiple">
                 @foreach (var listaTopico in (List<Topico>)ViewBag.ListaTopico)
                 {
-                    bool don = false;
-                    <td>
-                        @Html.HiddenFor( x => listaTopico.id)
-                        @Html.DisplayFor(x => listaTopico.nome)
-                    </td>
-                    <td>
-                        @Html.CheckBoxFor(x => don , new { Style = "" })
-                    </td>
+                    <option  value="@listaTopico.id">@listaTopico.nome</option>
                 }
-                 </tr>
-               </table>
+                </select>
+
             </div>
         </div>
 

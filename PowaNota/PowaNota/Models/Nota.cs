@@ -9,14 +9,13 @@ namespace Nota1.Models
     public class Nota
     {
         public int id;
-        public int idTipo;
+        public Tipo tipo = new Tipo();
         public string titulo;
-        public DateTime data;
-        public List<Texto> textos;
-        public List<Topico> topicos;
+        public DateTime data = DateTime.Now.Date;
+        public List<Texto> textos =  new  List<Texto>();
+        public List<Topico> topicos= new  List<Topico>();
 
        
-        
 
 
     }

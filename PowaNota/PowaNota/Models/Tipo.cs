@@ -8,33 +8,10 @@ namespace Nota1.Models
 {
     public class Tipo
     {
-        private int id;
-        private string nome;
+        public   int id;
+        public string nome;
 
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                this.id = value;
-            }
-        }
-
-        public string Nome
-        {
-            get
-            {
-                return nome;
-            }
-            set
-            {
-                this.nome = value;
-            }
-        }
+     
 
         public List<Tipo>ListaTipo()
         {

@@ -22,8 +22,9 @@ namespace Nota1.Controllers
         // GET: Nota
         public ActionResult Index()
         {
-            Usuario usuario = (Usuario)Session["session"];
-            ViewBag.LoginUsuario = usuario.login;
+           
+           Usuario usuario = (Usuario)Session["session"];
+            ViewBag.LoginUsuario =usuario;
             return View();
         }
         //Metodo de criar 
@@ -39,16 +40,21 @@ namespace Nota1.Controllers
 
                 String jsonRecebido = WebService.downloadJson("/AtributosNotas/recuperarTopico");
 
-                GenericDTO dto = JsonConvert.DeserializeObject<GenericDTO>(jsonRecebido);
-                dto.payload = ((JArray)dto.payload).ToObject<List<Topico>>();
+                GenericDTO dtoTopico = JsonConvert.DeserializeObject<GenericDTO>(jsonRecebido);
+                dtoTopico.payload = ((JArray)dtoTopico.payload).ToObject<List<Topico>>();
 
-                if (dto.operacaoSucedida)
+                jsonRecebido = WebService.downloadJson("/AtributosNotas/recuperarTipo");
+                GenericDTO dtoTipo = JsonConvert.DeserializeObject<GenericDTO>(jsonRecebido);
+                dtoTipo.payload = ((JArray)dtoTipo.payload).ToObject<List<Tipo>>();
+
+                if (dtoTopico.operacaoSucedida && dtoTipo.operacaoSucedida)
                 {
-                    listaTopico = (List<Topico>)dto.payload;
+                    listaTopico = (List<Topico>)dtoTopico.payload;
+                    listaTipo = (List<Tipo>)dtoTipo.payload;
                 }
                 else
                 {
-                    Response.Write(dto.mensagemErro);
+                    Response.Write(dtoTopico.mensagemErro);
                     return new EmptyResult();
                 }
                 #endregion
@@ -61,12 +67,9 @@ namespace Nota1.Controllers
                 throw;
             }
     
-
             ViewBag.ListaTipo = listaTipo;
             ViewBag.ListaTopico = listaTopico;
        
-            
-
             return View();
         }
 
@@ -77,29 +80,40 @@ namespace Nota1.Controllers
             {
                 Nota nota = new Nota()
                 {
-                    Titulo = collection["Titulo"],
-                    IdTipo = Convert.ToInt32(collection["IdTipo"])
-
+                    titulo = collection["Titulo"],
                 };
-                nota.Textos = new List<Texto>();
-                nota.Textos.Add(new Texto
-                { 
-                    Conteudo = collection["Textos"]
-                });
 
-                nota.Topicos = new List<Topico>();
-                nota.Topicos.Add(new Topico
+                foreach (Tipo t in listaTipo)
                 {
-                    nome = collection["Topicos"]
+                    if(t.id == int.Parse(collection["tipo"]))
+                    {
+                        nota.tipo = t;
+                    }
+                }
+                nota.textos = new List<Texto>();
+                nota.textos.Add(new Texto
+                {
+                    conteudo = collection["Textos"]
                 });
 
-                    string jsonEnvio = JsonConvert.SerializeObject(nota);
+                string topicosStr = collection["topicos"];
+                string[] listTopicoStr = topicosStr.Split(',');
+                nota.topicos = new List<Topico>();
+                
+                foreach(Topico t in listaTopico) {
+                    foreach(string topico in listTopicoStr) {
+                        if (t.id.Equals(int.Parse(topico)))
+                            nota.topicos.Add(t);
+                        }
+                };
 
-                    WebClient webCliente = new WebClient();
+                string jsonEnvio = JsonConvert.SerializeObject(nota);
 
-                    string jsonRecebido = webCliente.UploadString("http://13.65.36.147/doutorama.backend/pessoas/SalvarLogin", jsonEnvio);
+                WebService.uploadJson("/Nota/criar", jsonEnvio);
 
-                    Response.Write(jsonRecebido);
+                Response.Write(jsonEnvio);
+
+                return RedirectToAction("Index", "Nota");
             }
 
             catch(Exception e)
