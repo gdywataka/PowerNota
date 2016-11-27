@@ -112,8 +112,6 @@ namespace Nota1.Controllers
                 WebService.uploadJson("/Nota/criar", jsonEnvio);
 
                 Response.Write(jsonEnvio);
-
-                return RedirectToAction("Index", "Nota");
             }
 
             catch(Exception e)

@@ -8,73 +8,13 @@ namespace Nota1.Models
 {
     class Pasta
     {
-        private int id;
-        private int idUsuario;
-        private int idPastaPai;
-        private string nome;
-        private DateTime data;
+        public int id;
+        private Usuario usuario;
+        public List<Nota> notas;
+        public Pasta pastaPai;
+        public string nome;
+        public DateTime data =DateTime.Now.Date;
 
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                this.id = value;
-            }
-        }
-
-        public int IdUsuario
-        {
-            get
-            {
-                return IdUsuario;
-            }
-            set
-            {
-                this.idUsuario = value;
-            }
-        }
-
-        public int IdPastaPai
-        {
-            get
-            {
-                return idPastaPai;
-            }
-
-            set
-            {
-                this.idPastaPai = value;
-            }
-        }
-
-        public string Nome
-        {
-            get
-            {
-                return Nome;
-            }
-
-            set
-            {
-                this.nome = value;
-            }
-        }
-
-        public DateTime Data
-        {
-            get
-            {
-                return data;
-            }
-            set
-            {
-                this.data = value;
-            }
-        }
+        
     }
 }
