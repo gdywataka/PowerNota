@@ -18,13 +18,14 @@ namespace Nota1.Controllers
         static List<Nota> listaNota = new List<Nota>();
         static List<Topico> listaTopico = new List<Topico>();
         static List<Tipo> listaTipo = new List<Tipo>();
+    
       
         // GET: Nota
         public ActionResult Index()
         {
-           
-           Usuario usuario = (Usuario)Session["session"];
-            ViewBag.LoginUsuario =usuario;
+
+            Session. = (Usuario)Session["Session"];
+            ViewBag.LoginUsuario = usuario ;
             return View();
         }
         //Metodo de criar 
@@ -112,6 +113,7 @@ namespace Nota1.Controllers
                 WebService.uploadJson("/Nota/criar", jsonEnvio);
 
                 Response.Write(jsonEnvio);
+
             }
 
             catch(Exception e)

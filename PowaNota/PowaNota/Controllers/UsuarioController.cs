@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Nota1.Models;
 using Nota1.Sessao;
-using sessao =  Nota1.Sessao.Session;
+using sessao = Nota1.Sessao.Session;
+using Newtonsoft.Json;
+using Nota1.Util;
 
 namespace Nota1.Controllers
 {
@@ -19,34 +21,44 @@ namespace Nota1.Controllers
             return View();
         }
 
+
+        public ActionResult Create()
+        {
+            return View();
+        }
         //Metodo de criar 
+        [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 Usuario usuario = new Usuario()
                 {
-                    id= Convert.ToInt32(collection["id"]),
-                    email = collection["Data"],
-                    login= collection["Dioghx"],
-                    senha = collection["Titulo"]
+                    email = collection["email"],
+                    login = collection ["login"],
+                    senha = collection["senha"]
                 };
 
-                listaUsuarios.Add(usuario);
-                return View();
+                string jsonEnvio = JsonConvert.SerializeObject(usuario);
+
+                WebService.uploadJson("/Usuario/criar", jsonEnvio);
+
+                Response.Write(jsonEnvio);
 
             }
 
             catch (Exception e)
             {
                 Response.Write(e.Message);
+                return View();
             }
-            return View();
-        }
 
+            return RedirectToAction("Login", "Usuario");
+        }
+         
         public ActionResult Login()
         {
-            ViewBag.nomeUsuario = "";
+        
             return View();
         }
 
