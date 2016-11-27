@@ -44,14 +44,14 @@ namespace Nota1.Controllers
             return View();
         }
 
-        public ActionResult login()
+        public ActionResult Login()
         {
             ViewBag.nomeUsuario = "";
             return View();
         }
 
         [HttpPost]
-        public ActionResult login(FormCollection fc)
+        public ActionResult Login(FormCollection fc)
         {
             string erro;
             if (sessao.logar(fc["login"],fc["senha"],out erro))
@@ -61,7 +61,7 @@ namespace Nota1.Controllers
 
             ViewBag.erro = erro;
 
-            return login();
+            return Login();
         }
     }
 }
