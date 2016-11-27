@@ -64,7 +64,7 @@ namespace Nota1.Controllers
             catch (Exception e)
             {
                 Response.Write("Erro!:" + e.Message);
-                throw;
+                return View();
             }
     
             ViewBag.ListaTipo = listaTipo;
@@ -119,6 +119,7 @@ namespace Nota1.Controllers
             catch(Exception e)
             {
                 Response.Write(e.Message);
+                return View();
             }
             return RedirectToAction("Index","Nota");
         }
