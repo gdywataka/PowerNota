@@ -25,7 +25,7 @@
 
         <div class="form-group">
             @Html.Label("Selecione Tipo", new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
+            <div class="dropdown dropdown-menu col-md-3">
                 @Html.DropDownListFor("ListaTipo")
                 @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
                 @Html.TextArea("Textos", "", new { @class = "form-control" })
