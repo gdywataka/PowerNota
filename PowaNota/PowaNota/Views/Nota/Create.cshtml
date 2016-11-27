@@ -26,7 +26,11 @@
         <div class="form-group">
             @Html.Label("Selecione Tipo", new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-                @Html.DropDownListFor("ListaTipo")
+                @foreach (var listaTipo in (List<Tipo>)ViewBag.ListaTipo)
+                {
+                    <input type="radio" name="tipos" id="radio-choice-v-2a" value="@listaTipo.id">
+                    <label for="radio-choice-v-2a">@listaTipo.nome</label>
+                }
                 @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
                 @Html.TextArea("Textos", "", new { @class = "form-control" })
                 </div>

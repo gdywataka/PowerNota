@@ -66,7 +66,7 @@ namespace Nota1.Controllers
                 Response.Write("Erro!:" + e.Message);
                 return View();
             }
-    
+         
             ViewBag.ListaTipo = listaTipo;
             ViewBag.ListaTopico = listaTopico;
        
