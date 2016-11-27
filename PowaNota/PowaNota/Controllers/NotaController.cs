@@ -85,7 +85,7 @@ namespace Nota1.Controllers
 
                 foreach (Tipo t in listaTipo)
                 {
-                    if(t.id == int.Parse(collection["tipo"]))
+                    if(t.id == int.Parse(collection["tipos"]))
                     {
                         nota.tipo = t;
                     }
