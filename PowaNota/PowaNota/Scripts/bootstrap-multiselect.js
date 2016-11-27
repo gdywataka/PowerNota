@@ -400,7 +400,7 @@
             maxHeight: false,
             includeSelectAllOption: false,
             includeSelectAllIfMoreThan: 0,
-            selectAllText: ' Select all',
+            selectAllText: ' Todos',
             selectAllValue: 'multiselect-all',
             selectAllName: false,
             selectAllNumber: true,
@@ -415,9 +415,9 @@
             filterBehavior: 'text',
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
-            nonSelectedText: 'None selected',
+            nonSelectedText: 'Selecione...',
             nSelectedText: 'selected',
-            allSelectedText: 'All selected',
+            allSelectedText: 'Todos',
             numberDisplayed: 3,
             disableIfEmpty: false,
             disabledText: '',
@@ -1720,6 +1720,8 @@
 
 $(document).ready(function () {
     $('#multiselectTopico').multiselect({
-        enableFiltering: true
+        enableFiltering: true,
+        filterPlaceholder: 'Procurar...',
+        includeSelectAllOption: true
     });
 });
