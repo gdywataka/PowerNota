@@ -38,7 +38,7 @@
         </div>
         <div class="form-group">
             @Html.Label("Selecione os topicos", new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
+            <div class="col-md-5">
                 <select id="multiselectTopico" name="topicos" multiple="multiple">
                 @foreach (var listaTopico in (List<Topico>)ViewBag.ListaTopico)
                 {
