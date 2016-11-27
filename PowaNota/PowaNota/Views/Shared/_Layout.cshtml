@@ -119,7 +119,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                           @Html.ActionLink("LogOut","Index","Home",new object { }, new { @class = "fa fa-fw fa-power-off" })
+                           @Html.ActionLink("LogOut","logout","Home",new object { }, new { @class = "fa fa-fw fa-power-off" })
                             @{
                                 Session.Abandon();
                             }
@@ -153,5 +153,35 @@
             </div>
         </div>
         </div>
+
+        <div id="modal" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-danger" id="gridSystemModalLabel">Acesso Negado</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-danger">Logue antes de continuar</div>
+                        <svg class="img-centered" src="~/Content/imgs/cancel.svg/"/>
+                    </div>
+                    <div class="modal-footer">
+                        @Html.ActionLink("Criar Conta", "Create", "Usuario", new
+                        {
+                            @class = "btn btn-primary"
+                        })
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </body>
+
+
+
 </html>
+
+<script>
+    if(@ViewBag.IsLogado == "1"){
+        mostrarModal()
+    };
+</script>

@@ -5,20 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using Nota1.Models;
 using Nota1.Sessao;
+using sessao =  Nota1.Sessao.Session;
 
 namespace Nota1.Controllers
 {
     public class UsuarioController : Controller
     {
-        Session sessao = new Session
-        {
-            usuarioLogado = new Usuario
-            {
-                login = "adm",
-                senha = "adm",
-                email = "joseMunirShipS2@hue.hue"
-            }
-        };
 
         static List<Usuario> listaUsuarios = new List<Usuario>();
         // GET: Usuario
@@ -54,21 +46,22 @@ namespace Nota1.Controllers
 
         public ActionResult login()
         {
-            ViewBag.nomeUsuario = sessao.usuarioLogado.login;
+            ViewBag.nomeUsuario = "";
             return View();
         }
 
         [HttpPost]
         public ActionResult login(FormCollection fc)
         {
-            if (fc["login"].Equals("adm") && fc["senha"].Equals("adm"))
+            string erro;
+            if (sessao.logar(fc["login"],fc["senha"],out erro))
             {
-                Session["session"] = sessao.usuarioLogado;
-                sessao.logado = true;
-                return RedirectToAction("Index", "Nota");
+                return RedirectToAction("Index","Nota");
             }
-            Response.Write("login ou usuario Inválidos");
-            return new EmptyResult();
+
+            ViewBag.erro = erro;
+
+            return login();
         }
     }
 }

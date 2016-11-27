@@ -153,6 +153,7 @@
     <Compile Include="Controllers\TopicoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DTO\GenericDTO.cs" />
+    <Compile Include="Filtro\AuthFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +177,7 @@
     <Content Include="Content\fonte2.css" />
     <Content Include="Content\freelancer.css" />
     <Content Include="Content\freelancer.min.css" />
+    <Content Include="Content\imgs\cancel.svg" />
     <Content Include="Content\morris.css" />
     <Content Include="Content\nota.css" />
     <Content Include="favicon.ico" />
@@ -199,6 +201,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\powerNota.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -221,10 +224,10 @@
     <Content Include="Views\Nota\Index.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Topico\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Topico\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
