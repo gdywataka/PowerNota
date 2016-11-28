@@ -6,39 +6,40 @@
 }
 
 <h2>Create</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create","Nota",FormMethod.Post,new {id = "criarNota"}))
 
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal ">
         <h4>Nota</h4>
         <hr/>
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "Erro:", new { @class = "text-danger" })
 
             <div class="form-group">
-                @Html.LabelFor(model => model.titulo, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.titulo,"Titulo",  new { @class = "control-label col-md-2" })
                 <div class="col-md-3">
-                    @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control" ,id = "titulo"}})
                     @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger" })
                 </div>
             </div>
 
         <div class="form-group">
-            @Html.Label("Selecione Tipo", new { @class = "control-label col-md-2" })
+            @Html.Label("Tipo de Nota", new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 @foreach (var listaTipo in (List<Tipo>)ViewBag.ListaTipo)
                 {
-                    <input type="radio" name="tipos" id="radio-choice-v-2a" value="@listaTipo.id">
+                    <input type="radio" name="tipos" id="radio-choice-v-2a" value="@listaTipo.id" checked="true">
                     <label for="radio-choice-v-2a">@listaTipo.nome</label>
                 }
                 @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
-                @Html.TextArea("Textos", "", new { @class = "form-control" })
+                <br/>
+                @Html.TextArea("Textos", "", new { @class = "form-control col-md-3 required", placeholder = "Texto", maxlength = "1000" })
                 </div>
         </div>
         <div class="form-group">
             @Html.Label("Selecione os topicos", new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                <select id="multiselectTopico" name="topicos" multiple="multiple">
+                <select id="multiselectTopico" name="topicos" multiple="multiple" required="true">
                 @foreach (var listaTopico in (List<Topico>)ViewBag.ListaTopico)
                 {
                     <option  value="@listaTopico.id">@listaTopico.nome</option>
@@ -48,14 +49,18 @@
             </div>
         </div>
 
-     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Criar" class="btn btn-default" />
+                    <input type="submit" value="Criar" class="btn btn-default" onsubmit="mostrarModalCriarNota()"/>
                 </div>
             </div>
         </div>
- }
+
+
+        
+
+    
+}
 
 
 

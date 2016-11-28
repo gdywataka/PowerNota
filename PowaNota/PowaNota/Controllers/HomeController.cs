@@ -21,7 +21,7 @@ namespace Nota1.Controllers
         public ActionResult logout()
         {
             sessao.logado = false;
-            return Index();
+            return RedirectToAction("Index","Home");
         }
 
     }

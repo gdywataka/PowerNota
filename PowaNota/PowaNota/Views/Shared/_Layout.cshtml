@@ -149,6 +149,7 @@
 
                 @Scripts.Render("~/bundles/jquery")
                 @Scripts.Render("~/bundles/bootstrap")
+                @Scripts.Render("~/bundles/jqueryval")
                 @RenderSection("scripts", required: false)
             </div>
         </div>
@@ -169,7 +170,17 @@
                 </div>
             </div>
         </div>
-
+        
+        <div id="modalSuccess" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-success" id="gridSystemModalLabel">Nota Criada!</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 
@@ -181,3 +192,10 @@
         mostrarModal()
     };
 </script>
+
+@if (ViewBag.jsMosalSucesso == "1")
+{
+<script>
+            mostrarModalCriarNota();
+</script>
+}

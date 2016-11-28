@@ -17,7 +17,7 @@ namespace Nota1.Util
             webCliente.Headers[HttpRequestHeader.ContentType] = "application/json";
             try
             {
-                webCliente.UploadString(C.WS_HOST + link, json);
+                webCliente.UploadString(C.WS_HOST_ALT + link, json);
             }
             catch (Exception)
             {
@@ -29,7 +29,7 @@ namespace Nota1.Util
         {
             try
             {
-               return webCliente.DownloadString(C.WS_HOST + link);
+               return webCliente.DownloadString(C.WS_HOST_ALT + link);
             }
             catch (Exception)
             {

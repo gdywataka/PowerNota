@@ -10,6 +10,7 @@ using System.Net;
 using Nota1.DTO;
 using Newtonsoft.Json.Linq;
 using Nota1.Util;
+using sessao = Nota1.Sessao.Session;
 
 namespace Nota1.Controllers
 {
@@ -18,14 +19,14 @@ namespace Nota1.Controllers
         static List<Nota> listaNota = new List<Nota>();
         static List<Topico> listaTopico = new List<Topico>();
         static List<Tipo> listaTipo = new List<Tipo>();
-    
-      
+
+
         // GET: Nota
         public ActionResult Index()
         {
-
-            Session. = (Usuario)Session["Session"];
-            ViewBag.LoginUsuario = usuario ;
+            if (sessao.usuarioLogado != null){
+                ViewBag.LoginUsuario = sessao.usuarioLogado.login;
+            }
             return View();
         }
         //Metodo de criar 
@@ -77,6 +78,8 @@ namespace Nota1.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            ViewBag.ListaTipo = listaTipo;
+            ViewBag.ListaTopico = listaTopico;
             try
             {
                 Nota nota = new Nota()
@@ -86,7 +89,7 @@ namespace Nota1.Controllers
 
                 foreach (Tipo t in listaTipo)
                 {
-                    if(t.id == int.Parse(collection["tipos"]))
+                    if (t.id == int.Parse(collection["tipos"]))
                     {
                         nota.tipo = t;
                     }
@@ -100,28 +103,30 @@ namespace Nota1.Controllers
                 string topicosStr = collection["topicos"];
                 string[] listTopicoStr = topicosStr.Split(',');
                 nota.topicos = new List<Topico>();
-                
-                foreach(Topico t in listaTopico) {
-                    foreach(string topico in listTopicoStr) {
+
+                foreach (Topico t in listaTopico)
+                {
+                    foreach (string topico in listTopicoStr)
+                    {
                         if (t.id.Equals(int.Parse(topico)))
                             nota.topicos.Add(t);
-                        }
+                    }
                 };
 
                 string jsonEnvio = JsonConvert.SerializeObject(nota);
 
                 WebService.uploadJson("/Nota/criar", jsonEnvio);
 
-                Response.Write(jsonEnvio);
-
             }
 
-            catch(Exception e)
+            catch (Exception e)
             {
                 Response.Write(e.Message);
                 return View();
             }
-            return RedirectToAction("Index","Nota");
+
+            ViewBag.jsMosalSucesso = "1";
+            return View();
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Nota1.Sessao
                     if (user.login.Equals(usuario) && user.senha.Equals(senha))
                     {
                         logado = true;
+                        usuarioLogado = user;
                         return logado;
                     }
                     else
