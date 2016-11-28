@@ -51,4 +51,21 @@ $(function(){
         })
     }
 })
+$(function () {
+    {
+        $("#criarTopico").validate
+        ({
+            rules:
+                {
+                    nome: { required: true, maxlength: 80 }
+
+                },
+            messages:
+                {
+                    nome: { required: "O campo é necessario", maxlength: "O maximo permitido é 80 caracteres" }
+                   
+                }
+        })
+    }
+})
     
