@@ -30,3 +30,25 @@ $(function () {
         }
     })
 })
+
+$(function(){
+    {
+        $("#criarUsuario").validate
+        ({
+            rules:
+                {
+                    email:{required:true,email:true, maxlength:80},
+                    login:{required:true,login:true, maxlength:30 },
+                    senha:{required:true,senha:true, maxlength:30}
+
+                },
+            messages:
+                {
+                    email:{required:"O campo é necessario",email:"O formato de email esta invalido",maxlength:"O maximo permitido é 80 caracteres"},
+                    login:{required:"O campo é necessario",email:"O formato de login esta invalido",maxlength:"O maximo permitido é 30 caracteres"},
+                    senha:{required:"O campo é necessario",email:"O formato de senha esta invalido",maxlength:"O maximo permitido é 30 caracteres"},
+                }
+        })
+    }
+})
+    

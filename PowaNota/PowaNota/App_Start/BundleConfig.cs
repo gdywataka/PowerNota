@@ -23,7 +23,8 @@ namespace Nota1
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/bootstrap-multiselect.js",
-                      "~/Scripts/powerNota.js"));
+                      "~/Scripts/powerNota.js",
+                      "~/Scripts/jquery.validate*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

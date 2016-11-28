@@ -24,6 +24,7 @@ namespace Nota1.Controllers
         // GET: Nota
         public ActionResult Index()
         {
+            
             if (sessao.usuarioLogado != null){
                 ViewBag.LoginUsuario = sessao.usuarioLogado.login;
             }
