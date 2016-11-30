@@ -33,7 +33,7 @@
                 }
                 @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
                 <br/>
-                @Html.TextArea("Textos", "", new { @class = "form-control col-md-3 required", placeholder = "Texto", maxlength = "1000" })
+                @Html.TextArea("Textos", "", new { @class = "form-control col-md-3 required", placeholder = "Texto(1000 caracteres no max.)", maxlength = "1000" })
                 </div>
         </div>
         <div class="form-group">

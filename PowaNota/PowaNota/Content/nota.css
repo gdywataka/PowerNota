@@ -402,3 +402,23 @@ span.multiselect-native-select {
     margin-left: -20px;
     margin-right: 0;
 }
+
+.beta {
+    color: yellow;
+    font-size: smaller;
+    padding: unset;
+    margin: 6px -8px 0px;
+}
+
+.beta:hover {
+    color: #d8d817;
+}
+
+.powanota:hover{
+    color: #099272;
+}
+
+.logo:hover{
+    font-size:large;
+}
+

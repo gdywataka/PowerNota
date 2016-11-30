@@ -68,7 +68,9 @@ namespace Nota1.Controllers
          
             ViewBag.ListaTipo = listaTipo;
             ViewBag.ListaTopico = listaTopico;
-       
+
+            ViewBag.tela = 1;
+
             return View();
         }
 
@@ -123,6 +125,7 @@ namespace Nota1.Controllers
             }
 
             ViewBag.jsMosalSucesso = "1";
+            ViewBag.tela = 1;
             return View();
         }
     }

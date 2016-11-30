@@ -14,6 +14,7 @@ namespace Nota1.Controllers
     {
         public ActionResult Create()
         {
+            ViewBag.tela = 2;
             return View();
         }
 
@@ -30,16 +31,14 @@ namespace Nota1.Controllers
                 string jsonEnvio = JsonConvert.SerializeObject(topico);
 
                 WebService.uploadJson("/AtributosNotas/criarTopico", jsonEnvio);
-
-                return View();
             }
 
             catch (Exception e)
             {
                 Response.Write(e.Message);
-                return View();
-
             }
+            ViewBag.tela = 2;
+            return View();
 
         }
     }

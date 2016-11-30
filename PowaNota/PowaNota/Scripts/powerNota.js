@@ -28,8 +28,7 @@ $(function () {
         },
         messages: {
             titulo: {
-                required: "Titulo é obrigatório ",
-                maxlength: "Titulo pode ter no maximo 80 caracteres"
+                required: "Titulo é obrigatório "
             }
         }
     })
@@ -53,22 +52,17 @@ $(function () {
                     senha: {
                         required: true,
                         maxlength: 30
+                    },
+                    mesma_senha: {
+                        equalTo: "#senha"
                     }
-
                 },
             messages:
                 {
                     email:
                         {
-                            email: "O formato de email esta invalido <br> Formato: exemplo@email.com",
-                            maxlength: "O maximo permitido é 80 caracteres"
-                        },
-                    login: {
-                        maxlength: "O maximo permitido é 30 caracteres"
-                    },
-                    senha: {
-                        maxlength: "O maximo permitido é 30 caracteres"
-                    },
+                            email: "O formato de email esta inválido <br> Formato: exemplo@email.com"
+                        }
                 }
         })
     }
@@ -79,12 +73,10 @@ $(function () {
         ({
             rules:
                 {
-                    nome: { required: true, maxlength: 80 }
-
-                },
-            messages:
-                {
-                    nome: { required: "O campo é necessario", maxlength: "O maximo permitido é 80 caracteres" }
+                    nome: {
+                        required: true,
+                        maxlength: 80
+                    }
 
                 }
         })
