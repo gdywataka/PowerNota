@@ -18,24 +18,23 @@ function mostrarModalCriarNota() {
     $('#modalSuccess').modal()
 }
 
-$(function () {
-    $('#criarNota').validate({
-        rules: {
-            titulo: {
-                required: true,
-                maxlength: 80
-            }
-        },
-        messages: {
-            titulo: {
-                required: "Titulo é obrigatório "
-            }
-        }
-    })
-})
-
+//sessão documento.ready
 $(function () {
     {
+        $('#criarNota').validate({
+            rules: {
+                titulo: {
+                    required: true,
+                    maxlength: 80
+                }
+            },
+            messages: {
+                titulo: {
+                    required: "Titulo é obrigatório "
+                }
+            }
+        })
+
         $("#criarUsuario").validate
         ({
             rules:
@@ -82,3 +81,4 @@ $(function () {
         })
     }
 })
+

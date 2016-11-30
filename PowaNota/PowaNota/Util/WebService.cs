@@ -8,7 +8,7 @@ using C = Nota1.Util.Constantes;
 
 namespace Nota1.Util
 {
-    class WebService
+    public class WebService
     {
         static private WebClient webCliente = new WebClient();
 

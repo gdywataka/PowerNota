@@ -11,7 +11,7 @@ namespace Nota1.Models
         public int id;
         private Usuario usuario;
         public List<Nota> notas;
-        public Pasta pastaPai;
+        public Int32 pastaPai;
         public string nome;
         public DateTime data =DateTime.Now.Date;
 
