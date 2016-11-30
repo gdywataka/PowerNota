@@ -26,6 +26,7 @@ namespace PowaNota.Controllers
             }
 
             ViewBag.tela = 0;
+            ViewBag.json_pastas = "";
             return View();
         }
     }

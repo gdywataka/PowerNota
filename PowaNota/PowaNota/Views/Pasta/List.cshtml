@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="desk_usuario"/>
+
+@section scripts {
+    <script>
+        $("#desk_usuario").jstree({
+            core:{
+                data:
+                {
+                    @ViewBag.json_pastas
+                }
+            }
+        });
+    </script>
+}
+
+
+
+
+
