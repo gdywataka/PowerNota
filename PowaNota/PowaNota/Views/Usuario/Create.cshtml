@@ -49,11 +49,41 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" name="btnUsuario" value="Criar" class="btn btn-default" onsubmit="mostrarModalCriarNota()"/>
+                        <input type="submit" name="btnUsuario" value="Criar" class="btn btn-default"/>
                     </div>
                 </div>
             </div>
         }
         </div>
+        <div id="modalContaCriada" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-success">
+                            Seja bem vindo @ViewBag.login !
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="modal-title text-success">
+                            Conta Criada com sucesso!
+                        </h5>
+                    </div>
+                    <div class="modal-footer">
+                        <form>
+                            <button type="submit" formaction="/Usuario/Login" class="btn btn-success">Fechar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
+
+@if (ViewBag.login != null)
+{
+    @section scripts{
+        <script>
+                modalSucessoAccount();
+        </script>
+    }
+}

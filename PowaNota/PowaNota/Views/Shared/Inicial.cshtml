@@ -11,6 +11,7 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" href="@Url.Content("~/Content/imgs/favicon.ico")" />
 </head>
 <body id="page-top" class="index">
     <!-- Navigation -->
@@ -30,7 +31,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#sobre">Sobre</a>
+                        @Html.ActionLink("Sobre", "Index", "Home")">
                     </li>
                     <li class="page-scroll">
                         @Html.ActionLink("Logar","Login","Usuario")">

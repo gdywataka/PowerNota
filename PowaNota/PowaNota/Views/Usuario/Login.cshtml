@@ -21,7 +21,10 @@
                 @Html.EditorFor(model => model.login, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.PasswordFor(model => model.senha, new { htmlAttributes = new { @class = "form-control" } })
                 <input type="submit" value="Login" class="btn btn-default" />
-            };
+            }
+            <form >
+                <input style="color:gray" type="submit" value="Registrar" class="btn btn-default" formaction="/Usuario/Create" />
+            </form>
 
             <div id="modalLogin" class="modal fade">
                 <div class="modal-dialog" role="document">
@@ -35,21 +38,12 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <div class="login-help">
-                <ul>
-                    <li>@Html.ActionLink("Registre-se", "Create", "Usuario")</li>
-                </ul>
-            </div>
+            
         </div>
-        </div>
+     </div>
 
-        
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
 
@@ -60,4 +54,5 @@
             mostraModalLogin();
         </script>
     }
-       
+    
+

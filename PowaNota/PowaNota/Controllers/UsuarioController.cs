@@ -43,8 +43,6 @@ namespace Nota1.Controllers
 
                 WebService.uploadJson("/Usuario/criar", jsonEnvio);
 
-                Response.Write(jsonEnvio);
-
             }
 
             catch (Exception e)
@@ -53,12 +51,13 @@ namespace Nota1.Controllers
                 return View();
             }
 
-            return RedirectToAction("Login", "Usuario");
+            ViewBag.login = collection["login"];
+
+            return View();
         }
          
         public ActionResult Login()
         {
-        
             return View();
         }
 
