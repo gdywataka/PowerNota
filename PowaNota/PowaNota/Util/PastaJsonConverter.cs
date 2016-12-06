@@ -24,7 +24,7 @@ namespace PowaNota.Util
             }
             foreach(Pasta p in pastas)
             {
-                json = String.Concat
+                json += String.Concat
                     ("{ 'id': ",p.id.ToString(),
                     ",'parent':",p.pastaPai == null? "'#'" : p.pastaPai.ToString(),
                     ",'text':'",p.nome,"',",

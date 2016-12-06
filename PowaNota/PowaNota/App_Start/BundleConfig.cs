@@ -35,7 +35,8 @@ namespace Nota1
                       "~/Content/morris.css",
                       "~/Content/fonte1.css",
                       "~/Content/fonte2.css",
-                      "~/Content/nota.css"));
+                      "~/Content/nota.css",
+                      "~/Content/imgs/default/style.css"));
         }
     }
 }

@@ -178,11 +178,11 @@
     <Content Include="Content\fonte2.css" />
     <Content Include="Content\freelancer.css" />
     <Content Include="Content\freelancer.min.css" />
-    <Content Include="Content\imgs\jstree_default\32px.png" />
-    <Content Include="Content\imgs\jstree_default\40px.png" />
-    <Content Include="Content\imgs\jstree_default\style.css" />
-    <Content Include="Content\imgs\jstree_default\style.min.css" />
-    <Content Include="Content\imgs\jstree_default\throbber.gif" />
+    <Content Include="Content\imgs\default\32px.png" />
+    <Content Include="Content\imgs\default\40px.png" />
+    <Content Include="Content\imgs\default\style.css" />
+    <Content Include="Content\imgs\default\style.min.css" />
+    <Content Include="Content\imgs\default\throbber.gif" />
     <Content Include="Content\morris.css" />
     <Content Include="Content\nota.css" />
     <Content Include="favicon.ico" />
