@@ -4,18 +4,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="desk_usuario"/>
+<link rel="stylesheet" href="~/Content/imgs/jstree_default/style.css" />
+<div id="desk_usuario" />
 
 @section scripts {
+    <script type="text/javascript" src="~/Scripts/jstree.js"></script>
     <script>
-        $("#desk_usuario").jstree({
-            core:{
+        $('#desk_usuario').jstree({
+            core: {
+                check_callback : true,
                 data:
-                {
-                    @ViewBag.json_pastas
-                }
+                [
+                    @Html.Raw(ViewBag.json_pastas)
+                   // { 'id' : 'ajson1', 'parent' : '#', 'text' : 'Simple root node' },
+                   //{ 'id' : 'ajson2', 'parent' : '#', 'text' : 'Root node 2' },
+                   //{ 'id': 'ajson3', 'parent': 'ajson2', 'text': 'Child 1', 'icon': ' glyphicon glyphicon-folder-open'},
+                   //{ 'id': 'ajson4', 'parent': 'ajson2', 'text': 'Child 2', "icon": "glyphicon glyphicon-file", }
+                ]
             }
         });
+
+        $("#desk_usuario").bind(
+            "select_node.jstree", function (evt, data) {
+                $("#desk_usuario").jstree('toggle_node',data.node);
+            }
+        );
     </script>
 }
 
