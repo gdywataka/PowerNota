@@ -4,7 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="desk_usuario" style="color:black"/>
+<div class="col-md-3">
+
+    <form class="form-inline">
+        <div class="form-group">
+            <input class="col-md-2 form-control" id="pesquisa_pasta" placeholder="Pesquisar..." />
+        </div>
+    </form>
+    <br />
+
+
+    <div id="desk_usuario" style="color:black" />
+</div>
 
 @section scripts {
     <script type="text/javascript" src="~/Scripts/jstree.js"></script>
@@ -24,11 +35,24 @@
             plugins: ['search', 'wholerow']
         });
 
+        //Para abrir a pasta com um clique
         $("#desk_usuario").bind(
             "select_node.jstree", function (evt, data) {
                 $("#desk_usuario").jstree('toggle_node',data.node);
             }
         );
+
+        //Função de pesquisa
+        $(function () {
+            var to = false;
+            $('#pesquisa_pasta').keyup(function () {
+                if (to) { clearTimeout(to); }
+                to = setTimeout(function () {
+                    var v = $('#pesquisa_pasta').val();
+                    $('#desk_usuario').jstree(true).search(v);
+                }, 250);
+            });
+        });
     </script>
 }
 

@@ -26,7 +26,8 @@ namespace PowaNota.Util
             {
                 json += String.Concat
                     ("{ 'id': ",p.id.ToString(),
-                    ",'parent':",p.pastaPai == null? "'#'" : p.pastaPai.ToString(),
+                    ",'parent':",p.pastaPai == null? "'#' , 'state':{'opened':true,'disabled':true}" : 
+                    p.pastaPai.ToString() ,
                     ",'text':'",p.nome,"',",
                     "'icon':'glyphicon glyphicon-folder-open'},");
             }
